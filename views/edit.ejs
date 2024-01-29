@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Message</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Message</h1>
+    <form action="/edit/<%= message.id %>" method="POST">
+        <label for="message">Message:</label><br>
+        <input type="text" id="message" name="message" value="<%= message.message %>"><br>
+        <label for="imageLink">Image Link:</label><br>
+        <input type="text" id="imageLink" name="imageLink" value="<%= message.image_link %>"><br>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

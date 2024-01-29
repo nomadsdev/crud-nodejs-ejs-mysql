@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex justify-center">
+        <div class="p-10">
+            <h1 class="text-2xl text-blue-600">CRUD</h1>
+            <div class="bg-blue-600 w-5 h-1 rounded-full"></div>
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <a href="/add" class="text-white bg-blue-600 px-5 py-1 rounded-full text-xs">Add Message</a>
+    </div>
+    <div class="flex justify-center pt-10">
+        <div class="grid grid-cols-4 gap-10">
+            <% messages.forEach(message => { %>
+                <div>
+                    <% if (message.image_link) { %>
+                        <img class="w-[250px] h-[250px] rounded-xl" src="<%= message.image_link %>" alt="Image">
+                    <% } %>
+                    <p class="text-zinc-700 py-3"><%= message.message %></p>
+                    <div class="flex gap-2 pt-2">
+                        <a href="/edit/<%= message.id %>" class="bg-yellow-500 text-white px-5 rounded-full">Edit</a>
+                        <a href="/delete/<%= message.id %>" class="bg-red-500 text-white px-5 rounded-full">Delete</a>
+                    </div>
+                </div>
+            <% }); %>
+            </div>
+    </div>
+</body>
+</html>
